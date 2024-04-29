@@ -81,6 +81,17 @@ const Home = () => {
   ];
   const [items, setItems] = useState(data);
 
+  const handleClick = () => {
+    setItems((prevItems) => [
+      ...prevItems,
+      {
+        id: prevItems.length + 1,
+        title: "Lorem ipsum dolor sit amet.",
+        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit",
+      },
+    ]);
+  };
+
   // sensor
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -105,6 +116,13 @@ const Home = () => {
 
   return (
     <div className="p-12">
+      <button
+        onClick={handleClick}
+        className="bg-violet-500 py-2 px-3 rounded-full text-white mb-5"
+      >
+        Add new
+      </button>
+
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
