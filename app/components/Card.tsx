@@ -27,10 +27,6 @@ const Card: NextPage<Props> = ({ item: { id, title, body }, index }) => {
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-
-    "--translate-x": transform ? transform.x : 0,
-    "--translate-y": transform ? transform.y : 0,
-    "--transition": transition,
     gridRowStart: `${index == 0 ? "span 2" : "span 1"}`,
     gridColumnStart: `${index == 0 ? "span 2" : "span 1"}`,
     transformOrigin: "0 0 ",
